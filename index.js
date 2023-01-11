@@ -1,3 +1,14 @@
+
+
+let game;
+
+function init()
+{
+    game = new game();
+}
+
+
+
 class Player
 {
     constructor(index)
@@ -31,12 +42,12 @@ class Game
         this.tiles = [];
         this.players = [];
         this.playerTurn = 0;
-        this.setupBoard();
+        this.SetupBoard();
     }
-    setupBoard()
+    SetupBoard()
     {   
         let path = [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        let x = 0;
+        let x = -0.15;
         let y = 10;
         let tileSize = 55;
         for (var i = 0; i < path.length; i++)
@@ -54,17 +65,17 @@ class Game
             else if (cmd == 0){
                 y--;
             }
-            let div = this.makeBoardDiv(x * tileSize ,y * tileSize,i+1)
+            let div = this.makeBoardDiv(x * tileSize , y * tileSize, i+1)
             let tile = new Tile(div);
             this.tiles.push(tile);
 
         }
         this.setupGotos();
     }
-
     setupGotos()
     {   
-        let goto = [[6, 14], [16, 4], [17, 23], [27, 33], [29, 10], [38, 43], [39, 20], [45, 34]];
+        let goto = [[6,14],[16,4],[17,23],[27,33],[29,10],[38,43],[39,20],[45,34]];
+                    
         for (var i = 0; i < goto.length; i++)
         {
             let element = goto[i];
